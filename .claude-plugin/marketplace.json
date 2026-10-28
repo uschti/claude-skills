@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "uschti",
+  "description": "Claude Code plugins by Andrea Pellegrini (uschti), shared across my projects.",
+  "owner": {
+    "name": "Andrea Pellegrini (uschti)",
+    "url": "https://github.com/uschti/claude-skills"
+  },
+  "plugins": [
+    {
+      "name": "shipping-pull-requests",
+      "description": "Opens, reviews and merges the current branch's pull request on GitHub (gh CLI); the developer commits, the skill never does. Builds on the superpowers code-review skills and is adapted from a GitLab merge-request workflow. The project's root CLAUDE.md needs a \"Shipping pull requests\" section with the review checklist (the rule files the reviewer applies).",
+      "source": "./plugins/shipping-pull-requests",
+      "category": "productivity"
+    }
+  ]
+}
