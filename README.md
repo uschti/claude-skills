@@ -47,24 +47,26 @@ claude plugin marketplace update uschti
 claude plugin update <skill>@uschti
 ```
 
-then `/reload-plugins` in the session (or a new session). Plugin manifests carry no `version` on
-purpose: the installed commit is the version, so every merged change is an update.
+then `/reload-plugins` in the session (or a new session). Each plugin carries a semver `version`
+in its `plugin.json`, and Claude Code updates an installed plugin only when that version changes:
+a pushed change without a version bump does not reach anyone who already installed the plugin.
 
 ## Working on the skills
 
-Edit in your clone, validate, push, then run the two update commands above. Do not register the
+Edit in your clone, bump the plugin's `version` (patch for a fix or a wording change, minor for
+new behaviour, major for a change a project's `CLAUDE.md` has to follow), validate, push, then
+run the two update commands above. Do not register the
 clone's folder as the marketplace: a marketplace name has one source per machine, and a project
 that declares the GitHub source refuses a `uschti` that user settings know by a folder (`Cannot
 add marketplace "uschti": its source doesn't match its extraKnownMarketplaces entry`).
 
-Validate before pushing: `claude plugin validate .` and `claude plugin validate ./plugins/<skill>`
-(the "no version" warning is intended).
+Validate before pushing: `claude plugin validate .` and `claude plugin validate ./plugins/<skill>`.
 
 ### Adding a skill
 
 One plugin folder `plugins/<name>/` with:
 
-- `.claude-plugin/plugin.json` (`name`, `description`, `author`, no `version`);
+- `.claude-plugin/plugin.json` (`name`, `version` starting at `1.0.0`, `description`, `author`, `license`);
 - `skills/<name>/SKILL.md` whose frontmatter has `name` and `description` (the description is
   what makes Claude pick the skill: say when to use it, in the words a developer would say);
 - `README.md` for humans: what it does, the trigger phrases (Italian and English), a

@@ -53,8 +53,9 @@ no ignored dirt. Say in the report which facts came from the defaults.
    token is stored in the OS keyring). The default scopes (`repo`, `read:org`) are enough.
 3. Check: `gh auth status --hostname github.com` prints "Logged in to github.com account <you>",
    and `gh pr list` (from the repo) lists the open pull requests.
-4. Install the superpowers plugin (the review sub-skills): `claude plugin marketplace add
-   obra/superpowers-marketplace && claude plugin install superpowers@superpowers-marketplace`.
+4. Install the superpowers plugin (the review sub-skills) from the official marketplace:
+   `claude plugin install superpowers@claude-plugins-official` (if Claude Code does not know
+   that marketplace: `claude plugin marketplace add anthropics/claude-plugins-official` first).
 
 ## Hard stops (report, never work around)
 

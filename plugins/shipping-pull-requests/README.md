@@ -34,9 +34,9 @@ brew install gh
 gh auth login --hostname github.com --git-protocol ssh --web
 gh auth status --hostname github.com
 
-# superpowers
-claude plugin marketplace add obra/superpowers-marketplace
-claude plugin install superpowers@superpowers-marketplace
+# superpowers, from the official marketplace (known to Claude Code by default;
+# if it is not: claude plugin marketplace add anthropics/claude-plugins-official)
+claude plugin install superpowers@claude-plugins-official
 ```
 
 ## Install
